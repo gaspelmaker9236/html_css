@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> 그라데이션 상자와 회원 가입 버튼 만들기 </title>
+		<meta charset="UTF-8">
+		<style type="text/css">
+			body, button { 
+				font-family: "맑은 고딕", "돋움", sans-serif; 
+				}
+			body{
+				width: 100%;
+				height: 100vh;
+				
+
+			}
+			#memberBox{
+				background: blue;
+				background: linear-gradient(to bottom, blue, white 30%, rgb(150, 150, 233));
+
+			
+			}
+
+			.box1{
+				width: 300px;
+				height: 200px;
+				background: radial-gradient(red, yellow, green);
+			}
+			.box2{
+				width: 300px;
+				height: 200px;
+				background: radial-gradient(circle, red, yellow, green);
+			}
+			.box3{
+				width: 300px;
+				height: 300px;
+				background: radial-gradient(circle at 20% 20%, red, yellow, green);
+			}
+			.box4{
+				width: 300px;
+				height: 300px;
+				background: radial-gradient(yellow, white 30%, orange 60%);
+			}
+
+			.box5{
+				width: 300px;
+				height: 300px;
+				background: #40a1c7;
+				background: linear-gradient(90deg,rgba(64, 161, 199, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="memberBox">
+			<p>아직 infoPub 회원이 아니세요? </p>
+			<button class="btnOrange">회원 가입 하기</button>
+			<div class="box1"></div>
+			<div class="box2"></div>
+			<div class="box3"></div>
+			<div class="box4"></div>
+			<div class="box5"></div>
+		</div>
+	</body>
+</html>

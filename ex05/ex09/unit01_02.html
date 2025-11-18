@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> 그라데이션 메뉴바 만들기 </title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+			body {
+				font:0.95em Arial,sans-serif;
+				margin:50px 0px;
+				}
+			h1 {
+				text-shadow:0px 0px 5px #666;
+				text-align:center;
+				font-size:3em;
+				letter-spacing:5px;
+				color:#d81b21;
+				text-transform:uppercase;
+				}
+			/* Gradient Menu Bar */
+			nav {
+				width: 100%;	
+				/* Permalink - use to edit and share this gradient. 퍼머링크 - 이 그라디언트를 편집하고 공유하는 데 사용: https://colorzilla.com/gradient-editor/#a90329+0,a90329+27,0a001c+100 */
+background: linear-gradient(to bottom,  #a90329 0%,#a90329 27%,#0a001c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			
+			}
+			nav ul {
+				height:50px;
+				display: flex;
+				justify-content: center;
+				list-style: none;;
+				width: 100%;
+				margin:0 auto;				
+				line-height: 50px;;
+				
+
+
+			}	
+			nav ul li {
+				width: 120px;
+				font-size: 10px;
+				text-align: center;
+				font-weight: bold;
+								
+			}	
+
+			nav ul li a {
+				text-decoration: none;;
+				color: white;
+				font-size:20px;
+				text-transform: uppercase;
+				
+			}
+
+			nav ul li a::after{
+				content: "/";
+			}
+
+			nav ul li:hover{
+				/* Permalink - use to edit and share this gradient. 퍼머링크 - 이 그라디언트를 편집하고 공유하는 데 사용: https://colorzilla.com/gradient-editor/#d8e0de+0,aebfbc+22,99afab+33,8ea6a2+50,829d98+67,4e5c5a+82,0e0e0e+100;Grey+3D */
+background: linear-gradient(to right,  #d8e0de 0%,#aebfbc 22%,#99afab 33%,#8ea6a2 50%,#829d98 67%,#4e5c5a 82%,#0e0e0e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+			}
+			
+		
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1>C/S/S/   s/h/o/e/s -  s/h/o/p</h1>
+		</header>
+		<nav>
+				<ul id="topNav">
+					<li><a href="">best 50</a></li> 
+					<li><a href="">high heel</a></li>  
+					<li><a href="">casual</a></li> 
+					<li><a href="">flat</a></li> 
+					<li><a href="">boots</a></li> 
+					<li><a href="">sandal</a></li> 
+					<li><a href="">bag</a></li> 
+					<li><a href="">acc</a></li> 
+					<li><a href="">sale</a></li> 
+				</ul>
+		</nav>
+	</body>
+</html>

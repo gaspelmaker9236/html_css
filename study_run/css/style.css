@@ -1,0 +1,47 @@
+body {
+    scroll-behavior: smooth; 
+}
+a {text-decoration: none; color:black;}
+nav {
+    background: rgb(46, 114, 177);
+    padding:20px;
+}
+nav ul{ display: flex;
+position: relative;
+}
+nav ul:hover{
+
+}
+nav ul li{ 
+   position: relative;
+}
+nav ul li a{
+    padding:20px 20px;  
+    text-transform: uppercase; 
+    font-weight: bold; 
+    color:#1d0e0e;
+}
+nav ul li ul{
+    display: none; 
+    position: absolute; 
+    background: gray; 
+    top:34px;
+}
+nav ul:hover li ul{ 
+    display: block; 
+    width: 100%;
+}
+nav ul li ul li{}
+nav ul li ul li{
+    transition: 0.5s;
+}
+nav ul li ul li:hover {
+    background-color: red;
+}nav ul li ul li:hover a{
+    color:white;
+}
+nav ul li ul li a{
+    display: block;
+    padding:20px;
+}
+

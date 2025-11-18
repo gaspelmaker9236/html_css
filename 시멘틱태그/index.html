@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>시멘틱태그</title>
+   <style>
+      #wrap{
+         width: 800px;
+         height: 800px;
+         background: red;
+         margin: 0 auto;
+      }
+      header{
+         width: 100%;
+         height: 150px;
+         background: yellow;
+         text-align: center;
+         line-height: 150px;
+      }
+      nav{
+         width: 100%;
+         height: 150px;
+         background: rgb(17, 235, 75);
+         text-align: center;
+         line-height: 150px;
+      }
+      main{
+         width: 100%;
+         height: 500px;
+         background: gray;
+         display: flex;
+      }
+      section{
+         width: 500px;
+         height: 100%;
+         background: rgb(10, 169, 243);
+         padding: 20px;
+         box-sizing: border-box;
+      }
+      section article{
+         background: #fff;
+         height: 220px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin-bottom: 20px;
+      }
+      aside{
+         width: 300px;
+         height: 500px;
+         background: orange;
+         color: #fff;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+      footer{
+         width: 100%;
+         height: 100px;
+         background: rgb(247, 126, 247);
+         text-align: center;
+         line-height: 100px;
+      }
+   </style>
+</head>
+<body>
+   <div id="wrap">
+      <header>머릿말부분</header>
+      <nav>네비게이션부분</nav>
+      <main>
+         <section>
+            <article>본문내용</article>
+            <article>중요한 내용</article>
+         </section>
+         <aside>부수적인내용(광고)</aside>
+      </main>
+      <footer>하단부분</footer>
+   </div>
+</body>
+</html>

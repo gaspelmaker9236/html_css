@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dropdown</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+            
+        }
+        a { color: black; text-decoration: none;}
+        ul {list-style: none;}
+        nav{ background: paleturquoise; width: 100%; height:40px; }
+        nav>ul{ 
+            height:100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+
+        }
+        nav>ul>li{ position: relative;}
+        nav>ul>li>a{ padding:10px 20px; color:black;}
+        
+
+        nav>ul>li:hover ul{
+            visibility: visible;
+        }
+
+
+        nav>ul>li>ul{visibility: hidden; position: absolute; top: 30px; left:0; background: rgb(19, 95, 105); width: 100%; }
+        nav>ul>li>ul>li{height: 30px; line-height: 30px; text-align: center;}
+        nav>ul>li>ul>li:hover {
+            background: green;            
+        }
+        nav>ul>li>ul>li>a{}
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">처음으로</a></li>
+            <li>
+                <a href="#">등잔펜션 안내</a>
+                <ul>
+                    <li><a href="#">소개합니다</a></li>
+                    <li><a href="#">오시는길</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">이용방법</a>
+                <ul>
+                    <li><a href="#">객실 둘러보기</a></li>
+                    <li><a href="#">요금안내</a></li>
+                    <li><a href="#">예약방법</a></li>
+                    <li><a href="#">예약 게시판</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">게시판</a>
+                <ul>
+                    <li><a href="#">공지시항</a></li>
+                    <li><a href="#">묻고답하기</a></li>
+                </ul>
+            </li>
+            <li><a href="#">프로필</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

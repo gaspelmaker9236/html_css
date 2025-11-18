@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid(그리드)</title>
+    <style>
+        .cnt{ display: grid; grid-template-columns: 100px 200px 300px; grid-auto-rows: 100px; margin-bottom: 10px;}
+        .cnt>div{ color: white; text-align: center; font-size: 2em;}
+        .cnt>div:nth-child(1){background-color: red;}
+        .cnt>div:nth-child(2){background-color: rgb(134, 60, 60);}
+        .cnt>div:nth-child(3){background-color: rgb(255, 208, 0);}
+        .cnt>div:nth-child(4){background-color: rgb(156, 149, 43);}
+        .cnt>div:nth-child(5){background-color: rgb(36, 164, 173);}
+        .cnt>div:nth-child(6){background-color: rgb(60, 76, 95);}
+
+        .cnt1{
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .cnt2{
+            width: 1200px;
+            border: 1px solid #ddd;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            font-size:8px;
+            grid-template-rows: minmax(300px, auto);
+        }
+    </style>
+</head>
+<body>
+    <div class="cnt">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+
+    <div class="cnt cnt1">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+
+    <div class="cnt cnt2">
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis animi sint atque at autem nobis a ut maiores necessitatibus, nihil alias quod eum earum distinctio! Dolores maxime quidem error excepturi?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis animi sint atque at autem nobis a ut maiores necessitatibus, nihil alias quod eum earum distinctio! Dolores maxime quidem error excepturi?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis animi sint atque at autem nobis a ut maiores necessitatibus, nihil alias quod eum earum distinctio! Dolores maxime quidem error excepturi?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis animi si</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis animi </div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis animi</div>
+    </div>
+</body>
+</html>

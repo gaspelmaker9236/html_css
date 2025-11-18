@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+            box-sizing: border-box;
+        }
+        #wrap{
+            width: 500px;
+            margin:50px auto;
+        }
+        #wrap h1{
+            text-align: center;
+        }
+        .box {
+            width:100%;
+            border: 5px solid black;
+            padding:20px;
+        }
+        header {
+            border: 5px solid black;
+            margin-bottom: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            border: 5px solid black;
+            padding: 20px;
+            display: flex; /* 하위에 있는 애들이 옆으로 붙는다 */
+            justify-content: space-between;
+        }
+        nav .nav1{
+            width: 25%; padding: 20px;
+        }
+        nav .nav2{
+            width: 48%; padding: 20px;
+        }
+        nav div {
+            background-color: seagreen;
+        }
+        article {
+            border: 5px solid black;
+            margin-bottom: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        article p{
+            text-align: left;
+            
+        }
+        article figure{
+            border:5px solid black;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        article figcaption{
+            background-color: pink;
+            padding: 20px;
+        }
+        footer {
+            border: 5px solid black;
+            padding: 20px;
+            text-align: center;
+            display: flex; /* 옆으로 열거 */
+            justify-content: space-between;
+        }
+        footer div {background-color: red; padding: 20px;}
+        .footer1 {
+            width: 25%;
+        }
+        .footer2 {
+            width: 48%;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- 컨텐츠가 있는경우 높이는 별도로 지정하지않는다. -->
+     <div id="wrap">
+        <h1>Semeantic</h1>
+        <div class="box">
+            <header>header
+                <nav>
+                    <div class="nav1">1</div>
+                    <div class="nav2">nav</div>
+                    <div class="nav1">3</div>
+                </nav>
+            </header>
+            <article>article
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae et quasi laboriosam voluptatibus perferendis facilis reprehenderit est accusantium omnis porro exercitationem, obcaecati aperiam nemo ea quia ab velit amet ut?
+                </p>
+                <figure>
+                    <figcaption>figure</figcaption>
+                </figure>
+            </article>
+            <footer>                
+                    <div class="footer1">1</div>
+                    <div class="footer2">footer</div>
+                    <div class="footer1">3</div>                
+            </footer>
+        </div>
+     </div>
+</body>
+</html>

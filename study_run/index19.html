@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>     </title>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<meta name='Title' content=''>
+<meta name='Subject' content=''>
+<meta name='Keywords' content=''>
+<meta name='Author' content=''>
+<meta name='Publisher' content=''>
+<meta name='Description' content=''>
+<meta name='Author-Date' content=''>
+<meta name='Copyright' content=''>
+
+<!-- 접근성 텍스트(skip) 숨김 -->
+<style>#skip{overflow: hidden; position:absolute; width:0; height:0; line-height:0; text-indent:-9999px;}</style>
+
+<!-- 폰트어썸 -->
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+<!-- 구글폰트 아이콘 -->
+<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0' />
+
+<!-- CSS 리셋 -->
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css'>
+
+<!-- 제이쿼리 3.7 CDN -->
+<script src='https://code.jquery.com/jquery-3.7.0.min.js' crossorigin='anonymous'></script>
+
+<!-- 로컬 CSS -->
+<link rel='stylesheet' href='./css/style19.css'/>
+
+<!-- 로컬 js -->
+<script src='./js/script.js' defer></script>
+
+</head>
+<body>
+<!-- 시각장애인 웹 접근성을 위한 skip _ 지우지않아도 됩니다. -->
+
+<ul id='skip'>
+   <li><a href='#header'>헤더 바로가기</a></li>
+   <li><a href='#nav'>메뉴 바로가기</a></li>
+   <li><a href='#content'>내용 바로가기</a></li>
+   <li><a href='#footer'>하단 바로가기</a></li>
+</ul>
+
+<!-- 공백을 위한 공간입니다. -->
+
+    <nav class="main-nav">
+        <div class="nav-logo">DESIGN <span class="accent-text">CODE</span></div>
+        <ul class="nav-links">
+            <li><a href="#featured-work">WORK</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+    </nav>
+
+    <!-- 모바일 메뉴 영역 (사용자 제공 구조) -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Resume</a></li>
+        </ul>
+    </div>
+    
+
+    <header class="hero-section">
+        <h1 class="hero-title">DESIGN <span class="accent-text">MEETS</span> CODE</h1>
+        <p class="hero-subtitle">CREATIVE EXPERIENCES, BROUGHT TO LIFE.</p>
+        <a href="#featured-work" class="cta-button">VIEW PROJECTS</a>
+    </header>
+
+    <section id="featured-work" class="section featured-work-section">
+        <h2 class="section-title">FEATURED WORK</h2>
+        <div class="project-grid">
+            <article class="project-card aos-item" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://via.placeholder.com/600x400/333/EEE?text=PROJECT+1" alt="Project 1 Thumbnail" loading="lazy">
+                <div class="card-content">
+                    <h3>JAZZY ZONE</h3>
+                    <p>COURSE PRESENTATION SITE</p>
+                    <span>#WEBDEV #UIUX</span>
+                </div>
+            </article>
+            <article class="project-card aos-item" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://via.placeholder.com/600x400/444/EEE?text=PROJECT+2" alt="Project 2 Thumbnail" loading="lazy">
+                <div class="card-content">
+                    <h3>OPTIMAX ANALYTICS</h3>
+                    <p>DATA VISUALIZATION DASHBOARD</p>
+                    <span>#DATA #DASHBOARD</span>
+                </div>
+            </article>
+            <article class="project-card aos-item" data-aos="fade-up" data-aos-delay="500">
+                <img src="https://via.placeholder.com/600x400/555/EEE?text=PROJECT+3" alt="Project 3 Thumbnail" loading="lazy">
+                <div class="card-content">
+                    <h3>BIO-INTERACTIVE TERRAIN</h3>
+                    <p>REAL-TIME 3D LANDSCAPE</p>
+                    <span>#3D #INTERACTIVE</span>
+                </div>
+            </article>
+        </div>
+    </section>
+    
+    <section id="skills" class="section skills-section">
+        <h2 class="section-title">SKILLS</h2>
+        <div class="skill-bar-container aos-item" data-aos="fade-right" data-aos-delay="100">
+            <p>HTML/CSS</p>
+            <div class="bar"><div class="progress" data-skill-level="95"></div></div>
+        </div>
+        <div class="skill-bar-container aos-item" data-aos="fade-right" data-aos-delay="200">
+            <p>JavaScript (ES6+)</p>
+            <div class="bar"><div class="progress" data-skill-level="90"></div></div>
+        </div>
+        <div class="skill-bar-container aos-item" data-aos="fade-right" data-aos-delay="300">
+            <p>React.js / Next.js</p>
+            <div class="bar"><div class="progress" data-skill-level="85"></div></div>
+        </div>
+        <div class="skill-bar-container aos-item" data-aos="fade-right" data-aos-delay="400">
+            <p>UI/UX Design</p>
+            <div class="bar"><div class="progress" data-skill-level="80"></div></div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <h2 class="section-title">GET IN TOUCH</h2>
+        <p class="contact-text">함께 멋진 프로젝트를 만들어 나갈 준비가 되었습니다!</p>
+        <a href="mailto:your.email@example.com" class="contact-button">SAY HELLO</a>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2023 Your Name. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/yourid" target="_blank">GitHub</a> |
+            <a href="https://www.linkedin.com/in/yourid" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

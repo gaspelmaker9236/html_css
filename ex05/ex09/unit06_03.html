@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빈공간 채우는 그리드의 auto-fit, auto-fill</title>
+    <style>
+        body>div{
+            width: 1200px;
+            border: 1px solid #cccc;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(5, minmax(100px, 1fr));
+        }
+        body>div>div{
+            background: #ff0;
+        }
+        body>div>div:nth-child(even){ background: rgb(105, 247, 183);}
+        .cnt1{
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
+        .cnt2{
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        }
+        .cnt3{
+            grid-template-columns:repeat(3, 1fr);
+            gap:10px 30px;
+        }
+        .cnt4{
+             grid-template-columns: repeat(3, 1fr);
+             grid-template-rows: repeat(3, 100px);
+             gap: 1em;
+        }
+        .cnt4 .item1{
+            grid-column: 1/4;
+            background: #f00;
+            grid-row-start: 1;
+        }
+        .cnt4 .item2{
+            grid-column: 1/2;
+            grid-row: 2/-1;
+            background: rgb(11, 200, 96);
+        }
+        .cnt4 .item3{
+            grid-column: 2/4;
+            grid-row: 2/3;
+            background: rgb(243, 151, 3);
+        }
+    </style>
+</head>
+<body>
+    <div class="cnt1">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    <div class="cnt2">
+         <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    <div class="cnt3">
+         <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+    <div class="cnt4">
+        <div class="item1">1</div>
+        <div class="item2">2</div>
+        <div class="item3">3</div>
+        <div class="item4">4</div>
+        <div class="item5">5</div>
+    </div>
+</body>
+</html>

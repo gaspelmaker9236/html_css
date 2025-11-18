@@ -1,0 +1,21 @@
+nav {
+    background-color: red;    
+    
+}
+
+nav ul { 
+    display: flex;
+    gap:30px;
+    padding:20px;
+    background-color: gray;    
+    
+}
+
+nav ul li:hover ul { 
+    display: block;
+    color: white;
+}
+
+
+nav ul li ul {display:none;}
+

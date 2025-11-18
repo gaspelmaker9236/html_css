@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>요소의 배경 처리하기</title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			html{
+			}
+			body{
+				margin: 0; padding: 0;
+				background-color: silver;
+				background-image: url(./images/bg0.png);
+				background-repeat: repeat-y;
+				background-position: right;
+				background-attachment: fixed;
+				/*background-size:100%;*/	
+			}
+			div{
+				background: url('./images/bg1.png') repeat-y top left fixed;
+				padding-left:60px;
+				width: 92%;		
+				height:100vh; /*vh:화면에 보이는 부분만큼 다보이게*/				
+				padding-top: 30px;
+			}
+			p{
+				line-height: 180%;
+				background: url('./images/dot.png') repeat-x left bottom;
+				font-size: 1.2em; /*1em = 16px*/
+			}
+
+			#container {
+				height: auto;
+				margin-bottom:100px;
+			}
+			#container .desc {
+				height: auto;
+				background: yellow;
+				border: 5px dotted black;
+				width: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<p>Well done is better than well said.</p>
+			<p>Seeing much, suffering much, and studying much, are the three pillars of learning. </p>
+			<p>Education is a progressive discovery of our own ignorance. </p>
+			<p>I want to know God's thoughts; the rest are details.</p>
+			<p>When all think alike, no one thinks very much.</p>
+			<p>Science is a wonderful thing if one does not have to earn one's living at it. </p>
+			<p>It's not that I'm so smart , it's just that I stay with problems longer.</p>
+			<p>Theories should be as simple as possible, but not simpler. </p>
+			<p>Technological progress is like an axe in the hands of a pathological criminal.</p>
+			<p>I never came upon any of my discoveries through the process of rational thinking. </p>
+			<p>Try not to become a man of success but rather to become a man of value. </p>
+			<p>Gravitation cannot be held responsible for people falling in love.</p>
+			<p>What is written without effort is in general read without pleasure. </p>
+			<p>Sincerity is the way of Heaven. </p>
+			<p>The man who moves a mountain begins by carrying away small stones.</p>
+			<p>While there's life, there's hope. </p>
+			<p>Paradise is where I am. </p>
+		</div>
+
+		<div id="container">			
+			<div id="clip-border" class="desc">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia autem aut reiciendis aliquid laborum, quas sed assumenda cumque suscipit deserunt labore ducimus eos! Molestias repellat tempora maxime harum amet ipsum!
+			</div>
+			<div id="clip-padding" class="desc">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia autem aut reiciendis aliquid laborum, quas sed assumenda cumque suscipit deserunt labore ducimus eos! Molestias repellat tempora maxime harum amet ipsum!
+			</div>
+			<div id="clip-content" class="desc">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia autem aut reiciendis aliquid laborum, quas sed assumenda cumque suscipit deserunt labore ducimus eos! Molestias repellat tempora maxime harum amet ipsum!
+			</div>
+		</div>
+	</body>
+</html>

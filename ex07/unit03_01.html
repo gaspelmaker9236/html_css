@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>요소의 크기 지정 및 여백 처리하기</title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+			h1{
+				text-align: center;
+			}			
+			div { 
+				width: 70%;
+				margin:20px auto;
+			}
+			p{
+				margin-bottom:20px;
+			}
+
+			table{ width: 590px;}
+			table td div{padding: 10px;text-align: center;}
+			table .box1{ border: none; }
+			table .box2{ border: 2px solid #ccc; }
+			table .box3{ border: 2px dotted #ccc; }
+			table .box4{ border: 2px dashed #ccc; }
+			table .box5{ border: 5px double #ccc; }
+			table .box6{ border: 5px groove #ccc; }
+			table .box7{ border: 5px ridge #ccc; }
+			table .box8{ border: 5px inset #ccc; }
+			table .box9{ border: 5px outset #ccc; }
+		</style>
+	</head>
+
+	<body>
+		<h1>알버트 아인슈타인 어록 </h1>
+		<div> 
+			<p>It's not that I'm so smart , it's just that I stay with problems longer. <br />
+						나는 똑똑한 것이 아니라 단지 문제를 더 오래 연구할 뿐이다. </p>
+			<p>I never came upon any of my discoveries through the process of rational thinking. <br />
+						나는 단 한번도 이성적인 사고를 통해 발견한 적이 없다. </p>
+			<p>Technological progress is like an axe in the hands of a pathological criminal. <br />
+						기술의 진보는 마치 병적인 범죄자의 손에 든 도끼와 같다.</p>
+		</div>
+
+		<h2>보더의 종류</h2>
+		<table border="0">
+			<tr>
+				<td><div class="box1">none</div></td>
+				<td><div class="box2">solid</div></td>
+				<td><div class="box3">dotted</div></td>
+			</tr>
+			<tr>
+				<td><div class="box4">deshed</div></td>
+				<td><div class="box5">double</div></td>
+				<td><div class="box6">groove</div></td>
+			</tr>
+			<tr>
+				<td><div class="box7">ridge</div></td>
+				<td><div class="box8">inset</div></td>
+				<td><div class="box9">outset</div></td>
+			</tr>
+		</table>
+	</body>
+</html>

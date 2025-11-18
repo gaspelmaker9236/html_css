@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+           margin: 50px;             
+        }
+        #container .desc {
+           width: 200px;
+           background: yellow;
+           border: 5px dotted #000;
+           margin-bottom: 20px;
+           padding: 20px;
+           
+        }
+        #container #clip-border {
+           background-clip: border-box;
+        }
+        #container #clip-padding {
+           background-clip: padding-box;
+        }
+        #container #clip-content {
+           background-clip: content-box;
+        }
+    </style>
+</head>
+<body>    
+        <div id="container">			
+            <div id="clip-border" class="desc">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia autem aut reiciendis aliquid laborum, quas sed assumenda cumque suscipit deserunt labore ducimus eos! Molestias repellat tempora maxime harum amet ipsum!
+            </div>
+            <div id="clip-padding" class="desc">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia autem aut reiciendis aliquid laborum, quas sed assumenda cumque suscipit deserunt labore ducimus eos! Molestias repellat tempora maxime harum amet ipsum!
+            </div>
+            <div id="clip-content" class="desc">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia autem aut reiciendis aliquid laborum, quas sed assumenda cumque suscipit deserunt labore ducimus eos! Molestias repellat tempora maxime harum amet ipsum!
+            </div>
+        </div>
+</body>
+</html>

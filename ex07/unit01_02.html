@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> 문단에 관련된 속성 알아보기 </title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+			#box1 h2 {
+				text-align: center; /* inline요소는 정렬이 text-align*/
+				font-variant: small-caps; /* 작은대문자 */				
+				word-spacing: 50px;
+			}
+
+			#box1 p {
+				line-height: 200%;
+				letter-spacing: 5px;				
+			}
+
+			#box2 h2 {
+				text-transform: uppercase; /* 원래대문자 */
+				text-decoration: underline; /* 밑줄 */
+			}
+
+			#box2 p {
+				text-decoration: line-through; /* 취소선 */
+				text-indent: 10%;
+			}
+
+			#box2 .line {  
+				text-indent: -10%;				 /*id가 class 보다 우선순위가 높다*/
+				text-decoration: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box1">
+			<h2>text-align, line-height, word-spacing, letter-spacing</h2>
+			<p>Only actions give life strength; only moderation gives it a charm. <br />
+			(Jean Paul Richter) <br />
+			행동만이 삶에 힘을 주고, 절제만이 삶에 매력을 준다. 
+			</p>
+		</div>
+		<div id="box2">
+			<h2>text-decoration, text-indent,  text-transform </h2>
+			<p>Good teaching is one-fourth preparation and three-fourths theater. (Gail Godwin) <br />
+			훌륭한 가르침은 1/4이 준비 과정, 3/4은 현장에서 이루어진다.
+			</p>
+			<p class="line">The endeavor to understand is the first and only basis of virtue. (Baruch Spinoza) <br />
+			이해하려고 노력하는 행동이 미덕의 첫 단계이자 유일한 기본이다. 
+			</p>
+		</div>
+
+	</body>
+</html>

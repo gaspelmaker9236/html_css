@@ -1,0 +1,16 @@
+.class01 {
+ background-color: gray;
+}
+
+.class02 {
+ background-color: green;
+}
+
+body{
+    background-color: black;
+}
+body p {
+    width: 500px;
+    background-color: white;    
+    color:rgb(0, 0, 0);
+}

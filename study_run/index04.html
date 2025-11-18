@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>여성의류 메뉴 예시</title>
+<style>
+body {
+  margin: 0;
+  font-family: "Pretendard", sans-serif;
+  background: #fdfdfd;
+}
+
+/* 상단 메뉴 영역 */
+.navbar {
+  background: rgba(255, 192, 203, 0.6); /* 핑크 투명 배경 */
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 14px 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* 1단 메뉴 스타일 */
+.navbar > ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar > ul > li {
+  position: relative;
+}
+
+.navbar > ul > li > a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 700;
+  font-size: 17px;
+  padding: 8px 10px;
+  transition: color 0.2s;
+}
+
+.navbar > ul > li:hover > a {
+  color: #d81b60;
+}
+
+/* 2단 메뉴 스타일 */
+.navbar ul ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.95);
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  min-width: 160px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  display: none;
+}
+
+.navbar ul ul li a {
+  display: block;
+  padding: 10px 16px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar ul ul li a:hover {
+  background: rgba(255,192,203,0.2);
+  color: #d81b60;
+}
+
+/* 1단 메뉴 hover 시 2단 메뉴 보이기 */
+.navbar > ul > li:hover > ul {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <ul>
+    <li>
+      <a href="#">신상품</a>
+      <ul>
+        <li><a href="#">오늘의 신상</a></li>
+        <li><a href="#">주간 베스트</a></li>
+        <li><a href="#">시즌 아이템</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">아우터</a>
+      <ul>
+        <li><a href="#">자켓</a></li>
+        <li><a href="#">코트</a></li>
+        <li><a href="#">가디건</a></li>
+        <li><a href="#">점퍼</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">상의</a>
+      <ul>
+        <li><a href="#">블라우스</a></li>
+        <li><a href="#">티셔츠</a></li>
+        <li><a href="#">니트</a></li>
+        <li><a href="#">셔츠</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">하의</a>
+      <ul>
+        <li><a href="#">청바지</a></li>
+        <li><a href="#">슬랙스</a></li>
+        <li><a href="#">스커트</a></li>
+        <li><a href="#">반바지</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">원피스</a>
+      <ul>
+        <li><a href="#">미니원피스</a></li>
+        <li><a href="#">롱원피스</a></li>
+        <li><a href="#">셔츠원피스</a></li>
+        <li><a href="#">플라워패턴</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">악세서리</a>
+      <ul>
+        <li><a href="#">가방</a></li>
+        <li><a href="#">귀걸이</a></li>
+        <li><a href="#">목걸이</a></li>
+        <li><a href="#">벨트</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+</body>
+</html>

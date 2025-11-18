@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> overflow, clip</title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+			body{
+				margin:20px 0px 0px 150px;
+				padding:0px;
+				font-size:0.7em;
+				}
+		 div { 
+				width:200px;
+				border:1px solid #666;
+				float:left;
+				margin-right:10px;
+				margin-top:10px;
+				}
+			h1 {
+				background:url(images/css_design.png) no-repeat;
+				font-size:1.2em;
+				font-family:arial;
+				height:400px;
+				text-align:center;
+				margin:0px;
+				padding:0px;
+				}
+			/* Layout */	
+			
+		</style>
+	</head>
+
+	<body>
+		<div id="box1">
+			<h1>overflow:hidden</h1>
+		</div>
+		<div id="box2">
+			<h1>overflow:auto</h1>
+		</div>
+		<div id="box3">
+			<h1>overflow:scroll</h1>
+		</div>
+		<div id="box4">
+			<h1>clip:rect(0px,200px,150px, 0px)</h1>
+		</div>
+		<div id="box5">
+			<h1>clip:rect(150px,200px,400px,0px)</h1>
+		</div>
+	</body>
+</html>

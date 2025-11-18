@@ -1,0 +1,126 @@
+*{box-sizing: border-box;}
+a{text-decoration: none; color: #000}
+#wrap{}
+#header{
+    width: 100%;
+    padding: 0 50px;
+    height: 100px;
+    background: rgba(255,255,255,.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#nav{}
+#nav>ul{
+    display: flex;
+}
+#nav>ul>li{
+    width: 150px;
+    text-align: center;
+}
+#nav>ul>li>a{
+    font-size: 24px;
+    font-weight: bold;
+    padding:27px;
+    
+}
+#nav>ul>li:nth-child(1)>a{ color: red;}
+#nav>ul>li:nth-child(2)>a{ color: rgb(4, 92, 168);}
+#nav>ul>li:nth-child(3)>a{ color: rgb(2, 211, 65);}
+#nav>ul>li:nth-child(4)>a{ color: rgb(218, 17, 240);}
+#nav>ul>li:nth-child(5)>a{ color: rgb(241, 19, 141);}
+#nav .bg{
+    width: 100%;
+    height: 0;
+    transition: height .3s;
+    background: #0e78e9;
+    position: absolute;
+    top: 100px;
+    left: 0;
+}
+#nav:hover .bg{
+    height: 216px;
+}
+#nav>ul>li>ul{
+    position: absolute;
+    top:100px;
+    width: 150px;
+    height:0;
+    overflow: hidden;
+
+}
+#nav:hover ul>li>ul{
+    transition: .3s;
+    height:216px;
+}
+
+#nav ul li:hover ul{
+    transition: .3s;
+    background: rgba(255,255,255,.5);
+    height:216px;
+}
+#nav>ul>li>ul>li{
+    position: relative;    
+}
+#nav>ul>li>ul>li:after{
+    content: "";
+    position: absolute;
+    width: 0;
+    left:50%;
+    bottom:0;
+    height:1px;
+    background: white;
+    
+}
+
+#nav>ul>li>ul>li:hover:after{
+    transition: 0.3s;
+    width: 100%;
+    left:0;;
+}
+
+#nav>ul>li>ul>li>a{
+    display: block;
+    padding:10px 0;
+    font-weight: 700;
+    color:white;    
+
+}
+
+
+
+.mainSlide{
+    width: 100%;
+    height: 800px;
+    background: url(../image/bg.jpg) no-repeat center center/cover;
+}
+.searchbox{
+    background: #0d5ee9 url(../image/totalsearch_ico.png) no-repeat right 20px center;
+    width: 300px;
+    height: 50px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.searchbox input{
+    background: none;
+    border: none;
+    color: #fff;
+}
+.searchbox input:focus{
+    outline: none;
+}
+#content{
+    width: 100%;
+    height: 800px;
+    background:#f00;
+}
+#footer{
+    width: 100%;
+    height: 100px;
+    background: #000;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> 고정 좌표 방식으로 배치하기  </title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+			body { 
+				font:12px "맑은 고딕",돋움,arial; 
+				margin:0px;
+				}
+			h1 { 
+				font-size:2em; 
+				color:#ffffff; 
+				text-align:center; 
+				margin:0px; 
+				padding:10px 15px; 
+				background-color:#666; 
+				}
+			h2 {
+				font-size:1.8em;
+				letter-spacing:-2px;
+				text-align:center;
+				margin:0px;
+				}
+			h3 {
+				font-size:1.5em;
+				letter-spacing:1px;
+				color:#009933;
+				margin:20px 0px;
+				}
+			p {
+				line-height:250%;
+				}
+			dl {
+				margin:20px 0px;
+				line-height:150%;
+				}
+			dt {
+				font-size:1.3em;
+				margin:0px;
+				padding:25px;
+				color:#6666cc;
+				}
+			.bookImg {
+				text-align:center;
+				margin:40px 0px;
+			}
+			a {
+				color:#666;
+				text-decoration:none;
+				font-family:"Arial Black",arial;
+				}
+			a:hover {
+				text-decoration:underline;
+				}
+			#topNavi {
+				list-style:none;
+				width:200px;
+				padding:30px 0px 0px 0px;
+				margin:0px;
+				}
+			/* layout */
+			header {
+				width: 100%;
+				position: sticky;	
+				top:0;
+				left:0;			
+			}
+			nav {
+				width:400px;
+				padding:30px;
+				color:white;
+				background-color: red;
+				padding-top: 100px;
+				position: fixed;
+				top:150px;
+				left:100px;	
+				
+			}
+			section{
+				width: 700px;
+				margin:0 auto;
+
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1 id="titlePage">프로그래머의 모바일 레시피</h1>
+		</header>
+		<nav>
+			<h2>관련 도서</h2>
+			<ul id="topNavi">
+				<li><a href="#">아이폰 프로그래밍 UIKit 핵심 바이블</a> </li>
+				<li><a href="#">가장 쉬운 실전 아이폰 프로그래밍 스타트 </a> </li>
+				<li><a href="#"> 안드로이드 API 바이블 : 200개 예제로 배우는 Android API 핵심 원리  </a> </li>
+				<li><a href="#"> 예제로 배우는 핵심 패턴 안드로이드 프로그래밍 SDK 2.1  </a> </li>
+				<li><a href="#">예제로 배우는 핵심 패턴 아이폰 프로그래밍  </a> </li>
+			</ul>
+		</nav>
+		<section>
+			<h2>아이폰 프로그래밍 UIKit 핵심 바이블</h2>
+			<div class="bookImg">
+				<figure>
+					<img src="images/book_mobile1.gif" width="135" height="168" alt="아이폰 프로그래밍 UIKit 핵심 바이블" />
+				</figure>
+			</div>
+			<ul>
+				<li>저 자 토코로 유타</li>  
+				<li>역 자  김은철 , 유세라</li>  
+				<li>구 분  번역서</li>  
+				<li>발행일 2011년 06월 09일</li> 
+				<li>페이지 512 페이지</li>
+				<li>ISBN 978-89-5674-530-5 </li>
+				<li>난이도 초급.중급</li>
+				<li>출판사 정보문화사</li>
+			</ul>
+			<h3>UIKit 상세 레퍼런스를 통해 기초부터 다지는 아이폰 프로그래밍!</h3>
+			<dl>
+				<dt>인터페이스 빌더는 필수인가?</dt>
+				<dd>대답은 물론 &quot;아니다&quot;이다. 이 책에서는 기본적으로 인터페이스 빌더를 사용하지 않고 진행한다. 인터페이스 빌더를 사용하면 은폐되는 부분이 생기기 때문이다. 이 책은 UIKit의 내용에 초점을 맞춰 설명하고 있다. UIKit의 기능이나 움직임이 블랙박스화 된 상태로는 내용을 정확하게 알 수 없기 때문이다. 뒤집어 말하면 이 책의 내용을 이해하는 것은 인터페이스 빌더에서 블랙박스화 되어 있는 부분을 배우는 것이라고 할 수 있다.</dd>
+				<dt>UIKit이란?</dt>
+				<dd>UIKit는 모든 iPhone/iPad 애플리케이션의 핵심이 되는 프레임워크이다. UIKit는 애플리케이션의 기본 부분을 제어하고 터치 판넬 조작이나 모션 등 사용자 조작을 감지하며, 화면 표시를 하기 위한 각종 기능을 제공한다. UIKit 지식을 잘 이해한다면 보다 능률이 높고 결함이 적은 iPhone/iPad 애플리케이션을 개발할 수 있게 될 것이다.</dd>
+			</dl>
+			<p>
+				&quot;UIKit는 대체로 어떤 기능으로 구성되어 있는 걸까?&quot; <br />
+				&quot;UISlider를 사용하려고 하는데 어떤 식으로 하면 될까?&quot;<br />
+				&quot;UIBarButton의 초기화 방법이 생각나지 않는데 어떻게 하는 거였지?&quot;<br />
+				&quot;전체 화면은 어떻게 하면 될까?&quot;
+			</p>
+			<p>
+				아이폰 프로그래밍 UIKit는 iPhone SDK에 대해서 어느 정도 알고 있는 독자가 이런 의문에 빠졌을 때 빠르게 참고할 수 있는 책이다. 이 책을 통해 iPhone 프로그램의 주요 기능을 익힐 수 있다.
+			</p>
+		</section>
+
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, velit adipisci magni deleniti officiis temporibus exercitationem, dolore non odio voluptatem asperiores! Iure sit eaque obcaecati officiis ipsam laudantium doloribus doloremque!
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed similique fugit provident consequatur id sint in pariatur. Maiores at aspernatur nobis aperiam est. Id aliquid non ea aspernatur recusandae optio quis assumenda at, fuga maiores, doloribus, molestias ipsa. Cupiditate, vitae quia! Id facere voluptatum quidem optio suscipit, aspernatur ipsam nam ipsa dolores accusantium laboriosam necessitatibus dignissimos blanditiis exercitationem possimus, sint consequuntur! Ipsam rem temporibus quos sapiente a modi deserunt assumenda recusandae consequuntur porro dignissimos beatae, eos animi ipsum quis non veritatis corporis obcaecati laudantium quidem totam nemo molestiae eaque! Cum neque, sit incidunt odio voluptates iusto corporis at pariatur veniam?
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut obcaecati labore eum? Saepe assumenda harum eum maiores veritatis dolorem molestiae. Illum error culpa laudantium blanditiis, adipisci tempore deleniti? Maxime magni, consequuntur ducimus dicta eos excepturi odit eligendi quas est laborum mollitia sit facere? Reiciendis, maxime fugiat adipisci, minima unde at modi eos consequuntur natus maiores praesentium? Expedita est labore laboriosam sed quae, mollitia, provident incidunt quas quos debitis odio vel quis quisquam soluta a nam exercitationem nisi corporis suscipit aut saepe, fugiat beatae. Facere, quae? Ipsum aliquid iure architecto et saepe provident quo, fuga dicta sit consequuntur commodi culpa minus placeat perferendis quia quisquam itaque possimus fugiat error pariatur minima rem modi. Nihil quasi ducimus eius assumenda impedit neque praesentium enim veritatis, itaque ad iusto sunt, omnis quae maxime fuga quam, sed dicta sequi atque qui sint culpa? Aperiam quibusdam doloremque id iste exercitationem sequi illum officiis dolores numquam, labore sunt odio inventore veritatis corporis architecto placeat provident vel odit rerum voluptatum sapiente illo. Illum aliquid possimus aut tempore nulla, maxime saepe nostrum quod natus repellendus porro excepturi esse? Nobis ex corrupti, officiis delectus veniam officia dolore aliquam totam tempora tempore. Suscipit aliquam non vel! Delectus non harum, nesciunt voluptatibus nisi et ea doloremque laudantium similique voluptate exercitationem debitis officia nam dolorem magnam. Doloremque quos perspiciatis qui iste temporibus, expedita quo explicabo, eos ipsam ducimus a sit in! Illum soluta consequuntur laborum deserunt voluptas voluptatum labore fugiat maiores tenetur quisquam quidem quia impedit tempora modi ullam, optio sequi nisi provident ab mollitia in nemo saepe sapiente eos? Sapiente distinctio, molestiae dolor omnis debitis unde itaque aut voluptate, explicabo adipisci tempora veniam saepe, blanditiis pariatur. Perferendis nostrum natus minima facere porro dolor accusantium, neque quasi quidem qui? Aspernatur illum voluptatum quaerat, ullam reprehenderit nostrum nobis quibusdam in voluptatem quos adipisci facilis, dolorem est omnis impedit, odio aliquid eum facere temporibus. Quam blanditiis veniam veritatis cumque doloremque mollitia accusantium magni est ea obcaecati unde vitae eos, quidem sint voluptate eum reiciendis, sit minima fugit officia aperiam velit saepe? Adipisci iste, porro voluptate ipsa illum harum earum! Labore, voluptates. Quod sapiente atque accusantium debitis quasi. Perferendis excepturi dolore accusamus laudantium quisquam necessitatibus maxime esse amet, et deserunt. Quia est ullam amet ut! Itaque dolorem error magnam provident libero placeat ut, quam velit voluptatem fuga sunt minus ab, cumque corporis recusandae corrupti exercitationem excepturi numquam ipsa eaque sit temporibus magni natus a. Alias error velit rem adipisci suscipit, enim aperiam expedita esse quod laudantium modi, explicabo perferendis molestias temporibus aliquam provident harum voluptatem voluptatibus quia non distinctio corporis. Delectus quas dignissimos quaerat numquam est earum labore voluptate? Maxime officia eius sapiente, voluptatibus laborum nulla architecto officiis animi illo esse, est modi, veniam sint? Quisquam, fugit. Nihil quae iste, minima esse error aliquam maxime amet totam quisquam, facilis vel est dolore ratione fugit ducimus. Numquam corrupti minus a temporibus hic similique ipsam harum in, alias porro eligendi doloribus minima eum dolore magni adipisci dolores. Laborum expedita distinctio, dicta odit error placeat. Expedita, quod corrupti atque hic sequi reiciendis nulla iure error saepe fugiat eos, aliquid asperiores possimus quia? Tenetur deserunt debitis, ipsa vero quibusdam sapiente quod voluptatum aliquam impedit provident cupiditate eveniet deleniti quae illo corporis possimus neque? Labore iusto, neque laborum a dolor esse asperiores soluta aliquam ipsa velit commodi. Repudiandae laboriosam magni harum quis itaque iste dolore enim facilis, soluta est aspernatur officia corrupti aut fuga corporis adipisci sequi cupiditate animi optio numquam! Fugiat, dolore est. Corrupti obcaecati saepe ex provident nisi. Magnam ea neque magni numquam, maiores quaerat deserunt consectetur reiciendis error quis impedit, rem saepe laborum quod, hic alias placeat cupiditate. Ex, officia inventore sint repudiandae eaque alias recusandae? Totam ratione reiciendis quibusdam culpa aliquam omnis quos unde cumque dignissimos mollitia. Libero nobis optio tempora saepe provident dolor? Quo ea iure, alias natus non aliquam reprehenderit eum dolorum commodi ipsam quos cumque velit eveniet qui incidunt, rerum corporis molestiae soluta consectetur consequatur aut fuga. Repudiandae ut beatae rem obcaecati nulla a placeat nostrum, excepturi officia laboriosam voluptatibus illum dicta neque, ex quidem. Voluptatum vitae aliquam, animi quaerat fugit nemo excepturi consectetur blanditiis sapiente minus soluta rem ea alias odit! Non nemo vel odit ullam voluptatibus fugit deserunt neque a quos ipsa totam impedit, quae maxime! Quam soluta maiores assumenda molestiae officiis dolore commodi esse suscipit, pariatur quae aspernatur inventore cupiditate alias est ipsum architecto? Ratione quia totam eveniet pariatur harum magnam ipsam, earum cupiditate consequuntur nam laudantium provident deserunt excepturi vero neque impedit veniam blanditiis. Libero, facilis ducimus labore vel voluptas qui nostrum id, veritatis laboriosam aliquam blanditiis totam accusamus unde adipisci? Rem at aspernatur impedit numquam illo magnam voluptatibus amet. Voluptatibus distinctio adipisci ratione temporibus. Cum, tenetur voluptates? Vitae quia suscipit perferendis recusandae odio! Ratione soluta sequi placeat! Voluptatum nam aspernatur dolorum eligendi consequatur commodi consequuntur minima fuga, soluta excepturi nemo sunt cum repellat nobis laborum doloribus. Temporibus voluptates dolore consequuntur fugiat, animi inventore. Autem quo cupiditate quisquam obcaecati sint nam! Repellendus cum magni minima sit eveniet optio facere neque, ab non rem earum deserunt sunt quia cumque obcaecati distinctio eum, quidem aspernatur. Quos atque ab aut eos sapiente. Enim, velit. Corrupti, aspernatur? Autem a iste, voluptas error neque pariatur fugit? Dolorem praesentium nesciunt doloribus quis deserunt temporibus optio cupiditate ipsam soluta esse quidem minima, blanditiis nostrum inventore unde eligendi architecto reiciendis animi quod. Autem similique aspernatur deserunt, quam soluta et minus perspiciatis dignissimos cumque iusto nulla, animi non. Ipsa cumque, commodi porro reiciendis nobis, omnis alias similique, eaque beatae nostrum consequatur earum odio iure blanditiis id veniam consequuntur minus! Optio perspiciatis tenetur deleniti voluptatem obcaecati molestiae et, alias nulla commodi excepturi consequuntur ipsam? Corporis eveniet dolor atque ducimus rem facilis fugit, optio recusandae quisquam neque nam vero voluptates iste error provident magnam laboriosam nulla nesciunt tempore officia doloribus? Nisi ad ratione corporis vero unde neque, at, dolorum quas eos sit laborum nihil tenetur animi a eligendi impedit repudiandae facilis dignissimos, tempora dicta omnis. Consequatur iure omnis, dolorum quia velit ducimus ipsum, natus cupiditate, commodi molestias facilis culpa id dicta!
+	</body>
+</html>

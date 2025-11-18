@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>기업 홈페이지</title>
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box; }
+
+html{ 
+    scroll-behavior: smooth; 
+}
+
+/* 폰트지정 */
+body{ width: 100%;  
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+header{width:100%;position:fixed;top:0;left:0;z-index:999;background:#fff;border-bottom:2px solid #e1e3e1;} 
+.container{max-width:90%;margin:0 auto;padding:0 24px;} nav{display:flex;justify-content:space-between;align-items:center;height:80px;} 
+nav ul{display:flex;gap:40px;list-style:none;} nav a{text-decoration:none;color:#333;font-size:16px;font-weight:500;} 
+.mobile-menu-btn{display:none;font-size:22px;cursor:pointer}
+/* 모바일 메뉴 */
+.mobile-nav{ opacity: 0.8; position:fixed; z-index:9999; top:70px; right:-320px;width:320px;height:100vh;background:#fff;box-shadow:-2px 0 20px rgba(0,0,0,0.12);padding:60px 24px;display:flex;flex-direction:column;gap:22px;transition:right .28s ease;}
+.mobile-nav a{font-size:18px;color:#333;text-decoration:none;}
+.mobile-nav.show{top:70px; right:0;  border:0px solid red;}
+/* 햄버거 버튼 토글 */
+/* 기본 스타일 */
+#hamburger {
+    font-size: 28px; /* 기호 크기 */
+    cursor: pointer;
+    line-height: 1; 
+    transition: transform 0.3s ease-in-out; /* 회전 전환 효과 */
+    user-select: none; /* 드래그 방지 */
+}
+
+/* 'open' 클래스 추가 시 X자처럼 보이도록 회전 */
+#hamburger.open {
+    transform: rotate(90deg);
+}
+/* Hero 슬라이드 */
+.slider{position:relative;height:100vh;overflow:hidden;} .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 800ms ease, transform 800ms ease;transform:scale(1.02);} .slide.active{opacity:1;transform:scale(1);} .hero-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;text-align:center;z-index:2;padding:0 24px;} .hero-content h1{font-size:58px;margin-bottom:20px;font-weight:700;} .hero-content p{font-size:20px;opacity:0.95;}
+/* 버튼 & 도트 */
+.slide-btn{ opacity: 0.8; position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.95);border:none;color:#fff;font-size:28px;width:56px;height:56px;
+    border-radius:1%;cursor:pointer;z-index:20;display:flex;align-items:center;justify-content:center;backdrop-filter: blur(4px);} 
+.slide-btn:hover { opacity: 10;}
+.slide-btn.prev{left:28px;} 
+.slide-btn.next{right:28px;} 
+
+/*슬라이드 좌우측 화살표*/
+.thin-arrow-left {
+   
+    /* 배경 관련 속성 제거 (background-color, position, z-index 등) */
+    background-color: transparent;
+    
+    display: inline-block; /* 텍스트처럼 취급하여 다른 요소와 정렬하기 좋음 */
+    width: 50px;           /* 화살표의 시각적인 너비 (크기 조절) */
+    height: 50px;          /* 화살표의 시각적인 높이 (크기 조절) */
+    
+    /* 1px 굵기로 가장 얇은 화살표 획 */
+    border-left: 3px solid #ffffff; /* 왼쪽 테두리 */
+    border-bottom: 3px solid #ffffff; /* 아래쪽 테두리 */
+    
+    transform: rotate(45deg); /* 45도 회전하여 '<' 모양 만듦 */
+    border-radius: 10px;
+    
+}
+
+.thin-arrow-right {
+   /* 배경 관련 속성 제거 (background-color, position, z-index 등) */
+    background-color: transparent;
+    display: inline-block; /* 텍스트처럼 취급하여 다른 요소와 정렬하기 좋음 */
+    width: 50px;           /* 화살표의 시각적인 너비 (크기 조절) */
+    height: 50px;          /* 화살표의 시각적인 높이 (크기 조절) */
+    
+    /* 1px 굵기로 가장 얇은 화살표 획 */
+    border-left: 3px solid #ffffff; /* 왼쪽 테두리 */
+    border-bottom: 3px solid #ffffff; /* 아래쪽 테두리 */
+    
+    transform: rotate(225deg); /* 45도 회전하여 '<' 모양 만듦 */
+    border-radius: 10px;
+    
+}
+.slide-dots{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:20;} 
+.slide-dots button{width:40px;height:5px;border-radius:2%;background:rgba(255,255,255,0.45);border:0;cursor:pointer;padding:0; } 
+.slide-dots button:hover{
+    
+    transition: .5s;
+    background-color: rgb(68, 68, 68);
+    height: 7px;;
+    transform: scaleY(2);
+}
+.slide-dots button.active{background:#fff}
+/* 우측 고정바 */
+.fix-bar{position:fixed;right:20px;bottom:20%;transform:translateY(50%);display:flex;flex-direction:column;gap:12px;z-index:999;} 
+.fix-bar a{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #bfbfbf; font-size:14px;text-decoration:none;color:#333}
+/* 섹션 */
+.section{padding:80px 0;} 
+.section-title{text-align:center;margin-bottom:70px;} 
+.section-title h2{font-size:32px;font-weight:700;margin-bottom:12px;} 
+.section-title p{color:#777} .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px} 
+.card img{width:100%;border-radius:8px} 
+.card h3{margin:20px 0;font-size:22px;font-weight:600} 
+.card p{font-size:15px;line-height:1.7;color:#666}
+.underline {border-bottom: 1px solid #ddd; padding-bottom:20px;}
+footer{background:#111;color:#bbb;padding:80px 0;text-align:center;font-size:14px}
+
+
+/* area01-모달*/
+/* --- 섹션 스타일 (기존 코드와 통합) --- */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.card {
+    text-align: center;
+    /* padding: 20px; */
+    border: 1px solid #eee;
+    background-color: #fff;
+    /* cursor: pointer; */
+    text-decoration: none; /* 버튼 기본 스타일 제거 */
+    color: inherit; /* 버튼 기본 스타일 제거 */
+}
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+}
+.card h3 {
+    margin-top: 0;
+}
+.card p {
+    color: #666;
+}
+
+/* ⚠️ '인사말' 버튼을 카드처럼 보이게 하기 위한 추가 스타일 */
+.modal-trigger {
+    /* 버튼의 기본 배경/테두리 스타일을 제거하고 카드 클래스를 사용 */
+    background: none; 
+    border: none;
+    padding: 0;
+    margin: 0;
+    /* card의 스타일을 그대로 유지하기 위해 필요 */
+    display: block; 
+    width: 100%;
+}
+.modal-trigger.card {
+    /*padding: 20px; card의 패딩 다시 적용 */
+}
+
+
+/* --- 모달 스타일 (이전 답변 코드) --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1001; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.8); 
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 700px; 
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.close-btn2 {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.close-btn3 {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.modal-body p {
+    line-height: 1.8;
+}
+
+.detail_p {
+    padding: 14px;
+    font-size:14px !important;
+    background-color: #363636;
+    border:2px solid #ddd; width: 200px; margin: 0 auto;
+    color:white !important; 
+    cursor: pointer;
+    
+}
+
+.detail_p:hover {
+    background-color: #4a4d63;
+    color: white;
+}
+
+.modal-trigger{
+    cursor: default;
+}
+
+
+/*footer*/
+/* 푸터 전체 컨테이너 */
+.main-footer {
+    background-color: #292929; /* 이미지와 유사한 어두운 배경색 */
+    color: #a0a0a0; /* 텍스트 색상 */
+    font-size: 14px;
+    /* line-height: 1.6; */
+    padding: 20px 0 0 0; /* 상하 패딩, 좌우는 없게 또는 컨테이너에 맞춰 */
+    font-family: 'Noto Sans KR', sans-serif; /* 예시 폰트 지정 */
+}
+
+.main-footer a {
+    color: #a0a0a0; /* 링크 기본 색상 */
+    text-decoration: none;
+}
+
+.main-footer a:hover {
+    color: #ffffff; /* 링크 호버 시 색상 */
+}
+
+/* 푸터 내부 콘텐츠 (좌우 정렬 컨테이너) */
+.footer-container {
+    max-width: 1200px; /* 푸터 콘텐츠 최대 너비 */
+    margin: 0 auto; /* 가운데 정렬 */
+    display: flex;
+    justify-content: space-between; /* 왼쪽/오른쪽 콘텐츠 분리 */
+    padding: 0 20px; /* 좌우 내부 여백 */
+    flex-wrap: wrap; /* 반응형을 위해 요소가 줄바꿈되도록 */
+}
+
+/* 푸터 왼쪽 영역 (회사 정보) */
+.footer-left {
+    flex: 1; /* 가능한 공간을 차지 */
+    min-width: 300px; /* 너무 좁아지지 않도록 최소 너비 설정 */
+    margin-right: 40px;
+}
+
+.footer-left > div {
+    margin-bottom: 20px; /* 각 정보 블록 아래 여백 */
+}
+
+.footer-left p {
+    margin: 0; /* 단락 기본 마진 제거 */
+}
+
+/* 푸터 오른쪽 영역 (메뉴 그리드) */
+.footer-right {
+    flex-shrink: 0; /* 줄어들지 않도록 */
+    min-width: 400px; /* 최소 너비 */
+    max-width: 600px; /* 최대 너비 */
+    width: 50%; /* 비율로 너비 지정 (조정 가능) */
+    display: flex;
+    justify-content: flex-end; /* 메뉴를 오른쪽으로 정렬 */
+}
+
+.footer-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3열 그리드 */
+    gap: 15px; /* 그리드 항목 사이 간격 */
+    width: 100%; /* 부모의 너비를 꽉 채움 */
+}
+
+.footer-menu-grid .menu-item {
+    background-color: rgb(54, 54, 54); /* 메뉴 항목 배경색 */
+    padding: 20px 10px; /* 내부 패딩 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff; /* 메뉴 텍스트 색상 */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 얇은 테두리 */
+    transition: background-color 0.3s ease;
+}
+
+.footer-menu-grid .menu-item:hover {
+    background-color: #4A4D63; /* 호버 시 배경색 변경 */
+}
+
+/* 푸터 하단 (저작권 및 개인정보) */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0 auto; /* 상단 여백 추가, 가운데 정렬 */
+    padding: 20px; /* 좌우 내부 여백 */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* 상단 구분선 */
+    display: flex;
+    justify-content: space-between; /* 양쪽 끝 정렬 */
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 13px;
+}
+
+.footer-bottom .copyright {
+    margin: 0;
+}
+
+.footer-bottom .privacy-link {
+    margin: 0;
+}
+
+
+/* 반응형 디자인 (선택 사항) */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* 세로로 쌓이도록 변경 */
+        align-items: flex-start; /* 왼쪽 정렬 */
+    }
+
+    .footer-left {
+        margin-right: 0;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+    .footer-right {
+        width: 100%;
+        min-width: unset;
+        justify-content: flex-start;
+    }
+    
+    .footer-menu-grid {
+        grid-template-columns: repeat(2, 1fr); /* 모바일에서는 2열로 변경 */
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer-bottom .copyright {
+        margin-bottom: 10px;
+    }
+}
+@media(max-width:900px){nav ul{display:none;} .mobile-menu-btn{display:block;} .hero-content h1{font-size:34px} .grid-3{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo"><strong>HCHOME DESIGN</strong></div>
+      <ul>
+        <li><a href="#area1">회사소개</a></li>
+        <li><a href="#area2">업무분야</a></li>
+        <li><a href="#area3">포트폴리오</a></li>
+        <li><a href="#area4">문의</a></li>
+        <li><a href="#area5">고객지원</a></li>
+      </ul>
+      <div class="mobile-menu-btn" id="hamburger">☰</div>
+    </nav>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#">홈</a>
+  <a href="#area1">회사소개</a>
+  <a href="#area2">업무분야</a>
+  <a href="#area3">포트폴리오</a>
+  <a href="#area4">문의</a>
+  <a href="#area5">고객지원</a>
+</div>
+<section class="slider" id="slider">
+  <div class="slide" style="background-image:url('https://cdn.pixabay.com/photo/2019/07/12/18/48/code-4333398_1280.jpg')"></div>
+  <div class="slide" style="background-image:url('https://cdn.pixabay.com/photo/2022/01/25/12/16/laptop-6966045_1280.jpg')"></div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1486304873000-235643847519?auto=format&fit=crop&w=1600&q=80')"></div>
+
+  <div class="arrow-bg-container"><button class="slide-btn prev thin-arrow-left" id="prevBtn" aria-label="previous slide"> </button></div>
+  <div><button class="slide-btn next thin-arrow-right" id="nextBtn" aria-label="next slide"> </button></div>
+  <div class="slide-dots" id="dots"></div>
+
+  <div class="hero-content">
+    <h1>어떤 사업이든 잘어울리는 템플릿</h1>
+    <p>(주)회사이름 홈페이지를 소개합니다</p>
+  </div>
+</section>
+<div class="fix-bar">
+  <a href="tel:010-0000-0000">☎</a>
+  <a href="#area4">💬</a>  
+  <a href="#">TOP</a>
+</div>
+
+<!-- area1 모달 -->
+<section id="area1" class="section">
+    <div class="container">
+        <div class="section-title"><h2>회사소개</h2><p>회사를 소개합니다</p></div>
+        <div class="grid-3 section-title ">
+            
+            <button class="card underline modal-trigger" id="triggerBtn">
+                <img src="https://cdn.pixabay.com/photo/2017/08/06/19/31/christmas-2595533_1280.jpg" alt="web"/>
+                <h3>인사말</h3>
+                <p class="detail_p">상세보기</p>
+            </button>
+            
+            <button class="card underline modal-trigger" id="triggerBtn2">
+                <img src="https://cdn.pixabay.com/photo/2017/07/10/20/16/birthday-2491381_1280.jpg" alt="web"/>
+                <h3>연혁</h3>
+                <p class="detail_p" >상세보기</p>
+            </button>
+            
+            <button class="card underline modal-trigger" id="triggerBtn3">
+                <img src="https://cdn.pixabay.com/photo/2019/03/14/08/21/whiteboard-4054377_1280.jpg" alt="web"/>
+                <h3>회사조직</h3>
+                <p class="detail_p" >상세보기</p>
+            </button>
+        </div>
+    </div>
+</section>
+
+<div id="greeting-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3 class="modal-title">대표이사 인사말</h3>
+        <div class="modal-body">
+            <img src="https://cdn.pixabay.com/photo/2019/03/14/08/21/whiteboard-4054377_1280.jpg" alt="" width="100%">
+            <p>존경하는 고객 여러분, 저희 [회사명] 홈페이지를 방문해 주셔서 진심으로 감사드립니다.</p>
+            <p>저희는 [회사 비전이나 핵심 가치]를 바탕으로 고객님들의 기대 이상의 가치를 제공하기 위해 최선을 다하고 있습니다.</p>
+            <p>대표이사 [홍길동]</p>
+        </div>
+    </div>
+</div>
+<div id="greeting-modal2" class="modal">
+    <div class="modal-content">
+        <span class="close-btn2">&times;</span>
+        <h3 class="modal-title">연혁</h3>
+        <div class="modal-body">
+            <img src="https://cdn.pixabay.com/photo/2019/03/14/08/21/whiteboard-4054377_1280.jpg" alt="" width="100%">
+            <p>위 이미지를 변경하여 사용하세요</p>
+            <p>저희회사의 연혁 텍스트입니다</p>
+        </div>
+    </div>
+</div>
+<div id="greeting-modal3" class="modal">
+    <div class="modal-content">
+        <span class="close-btn3">&times;</span>
+        <h3 class="modal-title">회사 조직도</h3>
+        <div class="modal-body">
+            <img src="https://cdn.pixabay.com/photo/2019/03/14/08/21/whiteboard-4054377_1280.jpg" alt="" width="100%">
+            <p>위 이미지를 변경하여서 사용하세요</p>
+            <p>조직도에 관힌 텍스트 영역입니다.</p>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="greeting-modal2" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3 class="modal-title">대표이사 인사말</h3>
+        <div class="modal-body">
+            <p>존경하는 고객 여러분, 저희 [회사명] 홈페이지를 방문해 주셔서 진심으로 감사드립니다.</p>
+            <p>저희는 [회사 비전이나 핵심 가치]를 바탕으로 고객님들의 기대 이상의 가치를 제공하기 위해 최선을 다하고 있습니다.</p>
+            <p>대표이사 [대표자 이름] 배상2</p>
+        </div>
+    </div>
+</div>
+
+
+
+<section id="area2" class="section">
+  <div class="container">
+    <div class="section-title"><h2>업무분야</h2><p>업무분야를 소개합니다</p></div>    
+    <div class="grid-3 section-title">
+      <div class="card underline"><img src="https://cdn.pixabay.com/photo/2014/03/22/22/16/twitter-292993_1280.jpg" alt="web"/><h3>웹·모바일 홈페이지</h3><p>프리미엄 반응형 구축</p></div>
+      <div class="card underline"><img src="https://cdn.pixabay.com/photo/2024/12/29/09/14/product-9297608_1280.jpg" alt="branding"/><h3>브랜딩</h3><p>기업 브랜드 디자인</p></div>
+      <div class="card underline"><img src="https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg" alt="dev"/><h3>솔루션 개발</h3><p>맞춤형 시스템</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="area3" class="section">
+  <div class="container">
+    <div class="section-title"><h2>포트폴리오</h2><p>회사 포트폴리오입니다.</p></div>
+    <div class="grid-3">
+      <div class="card underline"><img src="http://jbs8.dothome.co.kr/assets/img/portfolio/app-11.jpg" alt="web"/><h3>포폴명(1)</h3></div>
+      <div class="card underline"><img src="http://jbs8.dothome.co.kr/assets/img/portfolio/app-22.jpg" alt="branding"/><h3>포폴명(2)</h3></div>
+      <div class="card underline"><img src="http://jbs8.dothome.co.kr/assets/img/portfolio/app-33.jpg" alt="dev"/><h3>포폴명(3)</h3></div>
+      <div class="card underline"><img src="http://jbs8.dothome.co.kr/assets/img/portfolio/product-11.jpg" alt="web"/><h3>포폴명(4)</h3></div>
+      <div class="card underline"><img src="http://jbs8.dothome.co.kr/assets/img/portfolio/product-22.jpg" alt="branding"/><h3>포폴명(5)</h3></div>
+      <div class="card underline"><img src="http://jbs8.dothome.co.kr/assets/img/portfolio/product-33.jpg" alt="dev"/><h3>포폴명(6)</h3></div>
+    </div>
+  </div>
+</section>
+
+<section id="area4" class="section">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>문의</h2>
+      <p>항상 친절하게 응대하겠습니다</p>
+    </div>
+
+    <!-- 가로 이미지 1개 -->
+    <div class="wide-image-box" style="margin-bottom: 40px;">
+      <img 
+        src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1600&q=80" 
+        alt="문의 배너" 
+        style="width:100%; height:380px; object-fit:cover; border-radius:10px;"
+      >
+    </div>
+
+    <!-- 아래 3개 내용 -->
+    <div class="grid-3">
+
+      <div class="card underline">
+        <h3>상담 안내</h3>
+        <p>
+          프로젝트 및 서비스 관련 문의를 환영합니다.<br>
+          전문 담당자가 빠르게 연락드립니다.
+        </p>
+      </div>
+
+      <div class="card underline">
+        <h3>연락처 정보</h3>
+        <p>
+          전화: 02-000-0000<br>
+          이메일: info@company.com<br>
+          주소: 서울특별시 ○○구 ○○로 00
+        </p>
+      </div>
+
+      <div class="card underline">
+        <h3>문의 접수</h3>
+        <p>
+          문의 양식 또는 이메일로 남겨주세요.<br>
+          업무시간 내 신속히 회신드립니다.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="area5" class="section">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>고객지원</h2>
+      <p>보다 빠르고 정확한 지원을 위해 최선을 다하겠습니다.</p>
+    </div>
+
+    <!-- 가로 메인 이미지 -->
+    <div class="wide-image-box" style="margin-bottom: 40px;">
+      <img 
+        src="https://cdn.pixabay.com/photo/2014/08/05/10/27/iphone-410311_1280.jpg" 
+        alt="고객지원 대표 이미지" 
+        style="width:100%; height:380px; object-fit:cover; border-radius:10px;"
+      >
+    </div>
+
+    <!-- 고객 지원 안내 단일 카드 -->
+    <div class="grid-3" style="grid-template-columns: 1fr; place-items:center;">
+
+      <div class="card underline" style="max-width:500px; text-align:center;">
+        <h3>고객센터 안내</h3>
+        <p>
+          서비스 관련 문의 및 기술 지원은 아래 연락처로 문의해주세요.<br>
+          담당자가 신속하게 응대해드립니다.
+        </p>
+        <p style="font-size:20px; margin:15px 0; font-weight:600;">
+          ☎ 1670-0000
+        </p>
+        <p>평일 09:00 ~ 18:00 (주말/공휴일 휴무)</p>
+
+        <a href="#" class="support-link" style="margin-top:10px; display:inline-block;">
+          카카오톡 문의하기 →
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <div class="contact-info" style="margin-top:20px;">
+                <p>대표번호 02-1234-1234</p>
+                <p>팩스번호 02-1234-1234</p>
+                <p>대표메일 <a href="mailto:company@naver.com">company@naver.com</a></p>
+            </div>
+
+            <div class="address-info">
+                <p>[서울] 서울시 관악구 신림동 24길 12-11 2층</p>
+            </div>
+
+            <div class="company-details">
+                <p>상호: (주)회사명 대표자명:홍길동</p>
+                <p>사업자등록번호: 123-12-12345</p>
+                <!-- <p>통신판매업신고: 제2025-서울관악-0250호</p> -->
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <div class="footer-menu-grid">
+                <a href="#area1" class="menu-item">회사소개</a>
+                <a href="#area2" class="menu-item">업무분야</a>
+                <a href="#area3" class="menu-item">포트폴리오</a>
+                <a href="#area4" class="menu-item">문의하기</a>
+                <a href="#area5" class="menu-item">고객지원</a>
+                <a href="#area6" class="menu-item">패밀리사이트</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p class="copyright">COPYRIGHT © HCHOME PAGE. ALL RIGHTS RESERVED.</p>
+        <p class="privacy-link"><a href="#">개인정보 취급방침</a></p>
+    </div>
+</footer>
+
+<script>
+// 안전하게 DOMContentLoaded 안에서 초기화하여 버튼이 항상 동작하도록 처리
+document.addEventListener('DOMContentLoaded', function(){
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dotsWrap = document.getElementById('dots');
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+
+  let current = 0;
+  let timer = null;
+  const INTERVAL = 6000; /* 넘겨지는 시간*/
+
+  // 도트 생성
+  slides.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.setAttribute('aria-label', 'go to slide ' + (i+1));
+    btn.addEventListener('click', () => { goTo(i); resetTimer(); });
+    dotsWrap.appendChild(btn);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function update(){
+    slides.forEach((s, idx) => {
+      s.classList.toggle('active', idx === current);
+      dots[idx].classList.toggle('active', idx === current);
+    });
+  }
+
+  function next(){ current = (current + 1) % slides.length; update(); }
+  function prev(){ current = (current - 1 + slides.length) % slides.length; update(); }
+  function goTo(i){ if(i>=0 && i<slides.length){ current = i; update(); } }
+
+  // 버튼 이벤트
+  nextBtn.addEventListener('click', function(e){ e.preventDefault(); next(); resetTimer(); });
+  prevBtn.addEventListener('click', function(e){ e.preventDefault(); prev(); resetTimer(); });
+
+  // 자동 재생 제어
+  function startTimer(){ timer = setInterval(next, INTERVAL); }
+  function stopTimer(){ if(timer) clearInterval(timer); }
+  function resetTimer(){ stopTimer(); startTimer(); }
+
+  // 초기 실행
+  update(); startTimer();
+
+  // 햄버거 메뉴
+  hamburger.addEventListener('click', function(){ mobileNav.classList.toggle('show'); });
+
+  // 키보드 접근성: 방향키로 슬라이드 변경
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight') { next(); resetTimer(); }
+    if(e.key === 'ArrowLeft') { prev(); resetTimer(); }
+  });
+
+  // 터치 스와이프 (간단)
+  let startX = 0;
+  let endX = 0;
+  const threshold = 50; // px
+  const slider = document.getElementById('slider');
+  slider.addEventListener('touchstart', (e)=>{ startX = e.touches[0].clientX; });
+  slider.addEventListener('touchmove', (e)=>{ endX = e.touches[0].clientX; });
+  slider.addEventListener('touchend', ()=>{
+    const diff = startX - endX;
+    if(Math.abs(diff) > threshold){ if(diff > 0){ next(); } else { prev(); } resetTimer(); }
+    startX = endX = 0;
+  });
+
+});
+
+/* 햄버거 */
+const hamburger = document.getElementById('hamburger');
+
+hamburger.addEventListener('click', function() {
+    // 'open' 클래스 토글: 메뉴를 보이거나 숨기는 CSS를 제어합니다.
+    hamburger.classList.toggle('open');
+    
+    // 텍스트 기호 변경: ☰ ↔ ✕
+    if (hamburger.classList.contains('open')) {
+        hamburger.textContent = '✕'; 
+    } else {
+        hamburger.textContent = '☰'; 
+    }
+    
+    // 이 위치에 메뉴를 열고 닫는 코드도 추가해야 합니다.
+    // 예: document.getElementById('mobile-menu').classList.toggle('active');
+});
+
+/*area01 모달*/
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('greeting-modal');
+    // HTML에서 triggerBtn ID를 가진 요소를 가져옴
+    const triggerBtn = document.getElementById('triggerBtn'); 
+    const closeBtn = document.querySelector('.close-btn');
+
+    // 1. 모달 열기 함수
+    if (triggerBtn) {
+        triggerBtn.onclick = function() {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+        }
+    }
+
+    // 2. 닫기 버튼 (X) 클릭 시 모달 닫기
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; 
+    }
+
+    // 3. 모달 외부 (오버레이) 클릭 시 모달 닫기
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        }
+    }
+});
+
+
+/*area01 모달2*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('greeting-modal2');
+    // HTML에서 triggerBtn ID를 가진 요소를 가져옴
+    const triggerBtn = document.getElementById('triggerBtn2'); 
+    const closeBtn = document.querySelector('.close-btn2');
+
+    // 1. 모달 열기 함수
+    if (triggerBtn) {
+        triggerBtn.onclick = function() {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+        }
+    }
+
+    // 2. 닫기 버튼 (X) 클릭 시 모달 닫기
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; 
+    }
+
+    // 3. 모달 외부 (오버레이) 클릭 시 모달 닫기
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        }
+    }
+});
+
+/*area01 모달3*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('greeting-modal3');
+    // HTML에서 triggerBtn ID를 가진 요소를 가져옴
+    const triggerBtn = document.getElementById('triggerBtn3'); 
+    const closeBtn = document.querySelector('.close-btn3');
+
+    // 1. 모달 열기 함수
+    if (triggerBtn) {
+        triggerBtn.onclick = function() {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+        }
+    }
+
+    // 2. 닫기 버튼 (X) 클릭 시 모달 닫기
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; 
+    }
+
+    // 3. 모달 외부 (오버레이) 클릭 시 모달 닫기
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        }
+    }
+});
+</script>
+</body>
+</html>

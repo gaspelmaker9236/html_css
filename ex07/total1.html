@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> FAQ </title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;
+			}
+			body{
+				background: url(./images/pattern_gray.png);
+				padding-top:50px;
+			}
+			h1{
+				text-align: center;		/*이미지는 텍스트화, 그러므로 text-align*/
+				background-color: white;
+				padding: 10px 0;
+				border-top: 1px solid gray;
+				border-bottom: 5px solid black;
+			}
+			
+			#faqBox {
+				width: 500px; /*넓이 지정하면 margin:0 auto 가 먹는다*/
+				margin:50px auto;				
+				padding:20px;
+				background: rgb(63, 63, 63);
+				border:2px solid rgb(255, 255, 255);								
+				border-radius: 10px;
+				color:white;
+				font-size: 12px;
+				box-shadow: 0px 0px 20px black;
+			}
+			#faqBox h2{
+				font-size:20px;				
+				border-bottom: 1px dashed rgb(202, 202, 202);
+				padding: 0 0 10px 20px;
+				
+			}
+			#faqBox dl {
+				margin-left: 20px;
+				margin-top: 10px;
+				font-size: 11px;
+				line-height: 150%;
+			}
+			#faqBox dl dt{
+				background-color: black;				
+				border-radius: 5px;
+				padding-top:8px;
+				padding-bottom:8px;
+				margin-bottom:10px;
+				font-weight: bold;
+			}
+			
+			#faqBox dl dt::before{
+				content: "Q... ";
+				color:yellowgreen;
+				font-weight: bold;
+				font-size:20px;
+			}
+			#faqBox dd{
+				margin-left: 20px;
+				text-align: justify; /*텍스트 양쪽으로 끝에 맞춰줘*/
+				margin-right: 30px;
+				
+			}
+			#faqBox dl dd::before{
+				content: "A... ";
+				color:rgb(235, 231, 33);
+				font-weight: bold;
+				font-size:20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1><img src="images/faq_topimg.jpg" width="687" height="44" alt="faq" /></h1>
+		<div id="faqBox">	
+		 <h2>3DS MAX에서 에러 메시지</h2>
+		 <dl>
+			<dt>Missing Map Files 의 에러 메시지가 나옵니다</dt>
+			<dd>
+					위와 같은 에러 메시지는 맥스 3.1 풀버전을 설치하시지 않으셨기 때문입니다.
+					맥스 3.1 setup 시에 custom 옵션에서 모든 항목을 체크하시면 door 와 windows라는 플러그인이 설치가 됩니다.
+			</dd>
+		 </dl>
+		</div>
+	</body>
+</html>

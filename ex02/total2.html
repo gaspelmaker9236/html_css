@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> 히트 레시피 </title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+		
+			/* 전체 선택자 */
+			*{
+				margin: 0;padding: 0;
+				list-style: none;
+			}
+			/* body 선택자 */
+			body{
+				margin-left:50px;
+				
+			}
+			/* 하이퍼링크 디자인 */
+			a:link {
+				color:gray;
+				text-decoration: none;
+			}
+			a:hover {
+				color:#000;
+
+			}
+			a:hover{
+				font-weight: bold;
+			}
+
+			/* div 요소 디자인  */
+			div{
+				
+				width: 150px;
+				border: 5px solid;
+				margin-bottom: 50px;
+				
+			}
+			#categoryBox{
+				
+				border:7px solid rgb(2, 37, 104);
+				margin-bottom: 70px;
+			}
+			#categoryBox ul li{
+			}
+			#categoryBox ul li:first-child a {
+				color: black;
+				font-weight: bold;
+			}
+			#bbsBox{
+				
+				border:7px solid rgb(250, 33, 196);
+			}
+			
+			/* h1 요소 디자인 */
+			h1 {
+				border-bottom: 2px solid gray;
+			}
+
+			h1 img {
+				margin-left:20px;
+			}
+			/* ul 요소 디자인 */
+			ul {
+				padding-left: 20px;;
+			}
+			ul li {
+				padding-bottom: 5px;;
+			}
+			/* cookMenu 클래스안에 위치한 첫번째 li 요소 안에 위치한 하이퍼링크 텍스트 디자인*/ 
+
+			/* bbsMenu 클래스 안에 위치한 각 하이퍼링크 텍스트 디자인 */
+			.bbsMenu li a[title*="자유"]{
+				color:white;
+				background-color: red;;
+			}
+			.bbsMenu li a[title*="회원"]{
+				color:white;
+				background-color: rgb(13, 0, 201);;
+			}
+			.bbsMenu li a[title*="레시피"]{
+				color:white;
+				background-color: rgb(21, 206, 30);;
+			}
+
+			.test {
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="categoryBox">
+			<h1><img src="images/title_category.jpg" width="54" height="13" alt="카테고리" /></h1>
+			<ul class="cookMenu"> 
+				<li class="test"><a href="#">밥/죽/면</a></li>
+				<li><a href="#">매일 반찬</a></li>
+				<li><a href="#">국/찌게/전골</a></li>
+				<li><a href="#">가족/초대요리</a></li>
+				<li><a href="#">소스/양념장</a></li>
+				<li><a href="#">간식/음료</a></li>
+				<li><a href="#">기타</a></li>
+			</ul>
+		</div>
+		<div id="bbsBox">
+			<h1><img src="images/title_bbs.jpg" width="54" height="13" alt="게시판" /></h1>
+			<ul class="bbsMenu">
+				<li><a href="#" title="자유게시판">자유 게시판</a></li>
+				<li><a href="#" title="회원장터">회원 장터</a></li>
+				<li><a href="#" title="나만의 레시피">나만의 레시피</a></li>
+				<li><a href="#" title="불후의 레시피">불후의 레시피</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

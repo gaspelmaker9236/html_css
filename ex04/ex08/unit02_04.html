@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sticky</title> 
+    <style>
+        /*스크롤을 내렸을때 어떻게 동작하게끔..*/
+        body{
+            padding-bottom: 2000px;
+        }
+        .position_box{height: 1500px;}
+        .position_box>div{
+            width: 200px;
+            height:200px;
+            text-align: center;
+            line-height: 200px;
+            background-color: red;
+            display: inline-block;
+        }
+        .position_box .sticky{background-color: rgb(155, 9, 82); position: sticky; top:0px;}
+        .position_box .static{background-color: rgb(41, 129, 14); position: static; top:0;}
+        .position_box .fixed{background-color: rgb(4, 0, 255); position: fixed; top:10px;}
+    </style>
+</head>
+<body>
+    <div class="position_box">
+        <h2>스크롤을 내려보세요</h2>
+        <div class="sticky">
+            sticky
+        </div>
+        <div class="static">
+            static
+        </div>
+        <div class="fixed">
+            fixed
+        </div>
+    </div>
+</body>
+</html>

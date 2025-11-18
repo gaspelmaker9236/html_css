@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> transform 속성으로 요소 변경하기 </title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+			body, h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd {
+				margin:0px;
+				padding:0px;
+				}
+			body {
+				background:url(images/eye_bg.png) repeat-x;
+				}
+			header {
+				background:url(images/eyetop.png) no-repeat center 36px ;
+				width:638px;
+				height:369px;
+				margin:0px auto;
+				}
+			header h1, header h2, header p {
+				display:none;
+				}
+			section {
+				width:600px;
+				margin:25px auto;
+				}
+			section dl {
+				float:left;
+				}
+			section dt, section dd {
+				display:none;
+				}
+			/* Transform */	
+			/* Transform */	
+		#book1 {
+			background:#f00;
+			width:300px;
+			height:193px;
+			transform: rotate(0deg);
+			transform-origin:20% 40%;
+			
+						
+		/*
+		-  transform 요소중 두번째 기준점 설정하기 입니다.
+
+			- transform-origin
+			- transform:
+			   rotate(degree) : 회전
+			   scale(sx,sy) : 가로, 세로 확대
+			   scaleX(sx) : 가로 확대
+			   scaleY(sy) : 세로 확대
+			   skew(degreeX,degreeY) :  x,y축 왜곡
+			   skewX(degree) : x축 왜곡
+			   skewY(degree) : y축 왜곡
+
+
+		- 방법은?
+				- transform-origin(%, %) 
+				  기본값은 50%,50%입니다.
+		*/		
+		}
+
+		#book1:hover{
+			transform: rotate(25deg);
+			transition: .5s;
+		}
+		#book2 {
+			background:#ff0;
+			width:269px;
+			height:213px;
+			transform: rotate(-15deg);
+			transform-origin:50% 50%;
+		}
+		#book2:hover{
+			transform: rotate(-375deg);
+			transition: .5s;
+		}
+
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1>눈으로 익히는 IT 길잡이 눈길 시리즈</h1>
+			<h2> 교재+학습 통합형 IT 입문서 눈길 시리즈 </h2>
+			<p> 기초만 탄탄히 다지면 응용 실력은 저절로 따라온다.필수 기능만을 엄선하여 학습 부담을 없앴습니다.</p>
+		</header>
+		<section>
+			<dl id="book1">
+			 <dt>포토샵 CS5</dt>
+			 <dd>다년간의 포토샵 강의 노하우로 포토샵의 기본기를 한권으로 끝낸다!</dd>
+			</dl>
+			<dl id="book2">
+			 <dt>일러스트레이터 CS5</dt>
+			 <dd>캐릭터 디자인부터 고급 일러스트까지 만는 벡터 그래픽툴.</dd>
+			</dl>
+		</section>		
+	</body>
+</html>

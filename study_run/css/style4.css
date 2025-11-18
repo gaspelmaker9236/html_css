@@ -1,0 +1,31 @@
+a {text-decoration: none; color: #000;}
+.wrap {}
+header {width: 300px; height:100vh; border-right:1px solid #e24141;}
+h1{ text-align: center;}
+h1 a {font-size:30px; font-weight: bold;padding:20px; display: block;}
+nav{ margin-top: 50px;}
+nav ul{
+    border-top:1px solid gray;
+}
+nav ul li{
+    border-bottom: 1px solid gray;
+    text-align: center;
+    position: relative;
+}
+nav ul li:hover{
+    background-color: green;
+}
+nav ul li a{ padding:20px; display: block;}
+nav ul li ul{ display: none;}
+nav ul li:hover ul{ display: block; background-color: gray; position: absolute; top:0; left:300px;}
+nav ul li ul li:hover {
+    transition: 1s;
+    background: black;
+}
+nav ul li ul li:hover a{
+    color:white;
+}
+nav ul li ul li a{ 
+    display: block;
+    padding:20px;
+}

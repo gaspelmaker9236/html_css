@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>시멘틱 태그</title>
+	<style>
+		#wrap {
+			width: 700px;
+			height: 800px;
+			background: red;
+			margin:0 auto;
+		}
+		header{
+			width: 100%;
+			height: 100px;
+			background: yellow;
+			text-align: center;
+			line-height: 100px;
+		}
+		nav{
+			width: 100%;
+			height: 100px;
+			background: rgb(7, 72, 110);
+			text-align: center;
+			line-height: 100px;
+		}
+		main{
+			width: 100%;
+			height: 500px;
+			background-color: darkgray;
+			display: flex;
+
+		}
+		section{
+			width: 500px;
+			height:100%;
+			background-color: skyblue;
+			padding: 20px;
+			box-sizing: border-box; /*넘치지말라고*/
+						
+		}
+		article{
+			background-color: aqua;
+			height:220px;
+			margin-bottom: 20px;;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		aside{
+			width: 200px;
+			height: 500px;
+			background-color: orange;
+			color:white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		footer{
+			width: 100%;
+			height: 100px;
+			background: rgb(196, 13, 150);
+			text-align: center;
+			line-height: 100px;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="wrap">
+		<header>머릿말부분</header>
+		<nav>네이게이션부분</nav>
+		<main>
+			<section>
+				<article>1</article>
+				<article>2</article>
+			</section>
+			<aside>3</aside>			
+		</main>
+		<footer>하단부분</footer>		
+	</div>	
+</body>
+</html>
