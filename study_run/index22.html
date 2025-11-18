@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vw, vh vs % 차이</title>
+    <style>
+        .container {
+            width: 80vw;
+            height: 60vh;
+            border: 2px solid #333;
+            margin: 30px auto;
+            background: #f9f9f9;
+            position: relative;
+        }
+        .vw-box {
+            width: 50vw;
+            height: 10vh;
+            background: #4fc3f7;
+            color: #fff;
+            line-height: 10vh;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .percent-width-box {
+            width: 50%;
+            height: 10vh;
+            background: #81c784;
+            color: #fff;
+            line-height: 10vh;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .vh-box {
+            width: 80vw;
+            height: 20vh;
+            background: #ba68c8;
+            color: #fff;
+            line-height: 20vh;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .percent-height-box {
+            width: 80vw;
+            height: 50%;
+            background: #ffb74d;
+            color: #fff;
+            line-height: 50%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="vw-box">width: 50vw (뷰포트 기준)</div>
+        <div class="percent-width-box">width: 50% (부모 기준)</div>
+        <div class="vh-box">height: 20vh (뷰포트 기준)</div>
+        <div class="percent-height-box">height: 50% (부모 기준)</div>
+    </div>
+    <p>
+        <strong>vw/vh</strong>: 뷰포트(브라우저 창) 크기를 기준으로 크기가 결정됩니다.<br>
+        <strong>%</strong>: 부모 요소의 크기를 기준으로 크기가 결정됩니다.
+    </p>
+</body>
+</html>
