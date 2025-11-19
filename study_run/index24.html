@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>SVG 애니메이션 장미</title>
+    <style>
+        body {
+            background: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        svg {
+            width: 400px;
+            height: 400px;
+            display: block;
+        }
+        .rose-path {
+            stroke: #e57373;
+            stroke-width: 3;
+            fill: none;
+            stroke-dasharray: 1800;
+            stroke-dashoffset: 1800;
+            animation: drawRose 3s linear forwards;
+        }
+        .rose-center {
+            stroke: #fbc02d;
+            stroke-width: 6;
+            fill: #fffde7;
+            opacity: 0;
+            animation: showCenter 0.8s 3s forwards;
+        }
+        .leaf {
+            stroke: #388e3c;
+            stroke-width: 4;
+            fill: #81c784;
+            opacity: 0;
+            animation: showLeaf 0.8s 3.5s forwards;
+        }
+        @keyframes drawRose {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        @keyframes showCenter {
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes showLeaf {
+            to {
+                opacity: 1;
+            }
+        }
+        /* 무한반복 */
+        svg * {
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+        }
+    </style>
+</head>
+<body>
+    <svg viewBox="0 0 400 400">
+        <!-- 장미 선(스파이럴) -->
+        <path class="rose-path"
+            d="M200,200
+               m0,-80
+               a80,80 0 1,1 0,160
+               a60,60 0 1,0 0,-120
+               a40,40 0 1,1 0,80
+               a20,20 0 1,0 0,-40"
+        />
+        <!-- 노란 장미 중심 -->
+        <circle class="rose-center" cx="200" cy="200" r="18"/>
+        <!-- 왼쪽 잎 -->
+        <ellipse class="leaf" cx="140" cy="260" rx="28" ry="12" transform="rotate(-25 140 260)"/>
+        <!-- 오른쪽 잎 -->
+        <ellipse class="leaf" cx="260" cy="260" rx="28" ry="12" transform="rotate(25 260 260)"/>
+    </svg>
+</body>
+</html>

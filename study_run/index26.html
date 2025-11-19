@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>원 svg animation</title>
+    <style>
+        .cir{width: 150px; height:150px;}
+        .cir circle{
+            fill:none;
+            stroke-width: 10px;
+            stroke-linecap: round;
+            animation: loader 4s infinite ease-in-out;
+            transform-origin: 50% 50%;
+        }
+        @keyframes loader {
+            0%{transform: rotate(0deg);}
+            50%{transform: rotate(360deg);}
+            100%{transform: rotate(0deg);}
+        }
+        .cir circle:nth-child(1){
+            stroke:aqua; 
+            stroke-dasharray: 30;
+            animation-delay: 0.4s;
+        }
+
+        @keyframes loader{
+            0%{
+                transform: rotate(0deg)
+            }
+            50%{
+                transform: rotate(360deg)
+            }
+            100%{
+                transform: rotate(0deg)
+            }
+        }
+
+        .cir circle:nth-child(1){
+            stroke: aqua;
+            stroke-dasharray:30;
+            animation-delay: 0.4s;
+        }
+        .cir circle:nth-child(2){
+            stroke: rgb(255, 128, 0);
+            stroke-dasharray:150;
+            animation-delay: 0.4s;
+        }
+        .cir circle:nth-child(3){
+            stroke: rgb(29, 16, 211);
+            stroke-dasharray:200;
+            animation-delay: 0.8s;
+        }
+        .cir circle:nth-child(4){
+            stroke: rgb(229, 18, 248);
+            stroke-dasharray:240;
+            animation-delay: 0.1s;
+        }
+    </style>
+</head>
+<body>
+    <svg class="cir">
+    <circle cx="75" cy="75" r="10" ></circle>
+    <circle cx="75" cy="75" r="30" ></circle>
+    <circle cx="75" cy="75" r="50" ></circle>
+    <circle cx="75" cy="75" r="70" ></circle>
+    </svg>
+</body>
+</html>
+

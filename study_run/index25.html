@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        line{stroke: black; stroke-width :2}
+        .line {animation: dash 2s linear infinite;}
+        @keyframes dash {
+            from{
+                stroke-dashoffset: 200;
+            }
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <svg width="600" height="200" viewBox="0 0 600 200"  xmlns="http://www.w3.org/2000/svg">
+    <line stroke-dasharray="0" x1="0" y1="40" x2="200" y2="40"/>
+    <line stroke-dasharray="100" x1="0" y1="60" x2="200" y2="60"/>
+    <line stroke-dasharray="190" x1="0" y1="80" x2="200" y2="80"/>
+    <line stroke-dasharray="300" x1="0" y1="100" x2="200" y2="100"/>
+    <line stroke-dasharray="5,5" x1="0" y1="120" x2="200" y2="120"/>
+    <line stroke-dasharray="5,20" x1="0" y1="140" x2="200" y2="140"/>
+    <line class="line" stroke-dasharray="50" strok-dashoffset="200" x1="0" y1="160" x2="600" y2="160"/>
+    </svg>
+</body>
+</html>

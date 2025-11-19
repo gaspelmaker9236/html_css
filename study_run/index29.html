@@ -1,0 +1,93 @@
+<svg width="420" height="420" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 장미 그라디언트 -->
+    <radialGradient id="roseGradient" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffb3c8"/>
+      <stop offset="40%" stop-color="#ff4d6a"/>
+      <stop offset="100%" stop-color="#b3002d"/>
+    </radialGradient>
+
+    <!-- 잎 그라디언트 -->
+    <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4caf50"/>
+      <stop offset="100%" stop-color="#1b5e20"/>
+    </linearGradient>
+
+    <!-- 잎 반짝임 -->
+    <linearGradient id="leafLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.4)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+
+    <!-- 그림자 -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dx="0" dy="8" result="offsetblur"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 줄기 -->
+  <path d="M210 380 C220 300 200 260 210 200" stroke="#2e7d32" stroke-width="8" fill="none"/>
+
+  <!-- 리얼 장미 꽃잎 -->
+  <g filter="url(#softShadow)">
+    <path fill="url(#roseGradient)"
+      d="M210 160 
+         C250 130 280 170 250 200 
+         C290 230 240 280 210 260
+         C180 280 130 230 170 200
+         C140 170 170 130 210 160Z"/>
+  </g>
+
+  <!-- 왼쪽 잎 -->
+  <g id="leafLeft">
+    <path fill="url(#leafGradient)"
+      d="M190 250 
+         C140 230 120 200 140 180
+         C160 160 200 170 210 200
+         C220 230 210 260 190 250Z"/>
+
+    <!-- 반짝 하이라이트 -->
+    <path fill="url(#leafLight)" opacity="0.4"
+      d="M190 250 
+         C160 230 150 200 170 190
+         C180 185 200 200 205 220
+         C195 240 200 255 190 250Z"/>
+  </g>
+
+  <!-- 오른쪽 잎 -->
+  <g id="leafRight">
+    <path fill="url(#leafGradient)"
+      d="M230 250 
+         C280 230 300 200 280 180
+         C260 160 220 170 210 200
+         C200 230 210 260 230 250Z"/>
+
+    <path fill="url(#leafLight)" opacity="0.4"
+      d="M230 250 
+         C260 230 270 200 250 190
+         C240 185 220 200 215 220
+         C225 240 220 255 230 250Z"/>
+  </g>
+
+  <!-- 잎 흔들림 애니메이션 -->
+  <style>
+    #leafLeft, #leafRight {
+      transform-origin: center;
+      animation: leafWave 1s ease-in-out infinite;
+    }
+
+    @keyframes leafWave {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(12deg); }
+      50% { transform: rotate(-3deg); }
+      75% { transform: rotate(12deg); }
+      100% { transform: rotate(0deg); }
+    }
+  </style>
+
+</svg>
