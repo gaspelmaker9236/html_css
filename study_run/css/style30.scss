@@ -1,0 +1,173 @@
+#wrap {
+    margin:50px;
+}
+
+.scssBox{
+    width: 100%;
+    padding: 20px;
+    background: #ddd;    
+    margin-bottom: 20px;
+
+}
+
+$main-color: rgb(169, 185, 26);
+$sub-color: rgb(42, 131, 158);
+$padding-size: 20px;
+
+.box{
+    background: $main-color;
+    padding:$padding-size
+}
+
+.card{
+    background: #412b2b;
+    padding: $padding-size;
+
+    .title{
+        font-size: $padding-size;
+    }
+
+    .desc{
+        color:$sub-color;
+    }
+}
+
+// hover 등등 상태
+.btn{
+    padding:12px 20px;
+    background: #333;
+    color:#fff;
+    border:none;
+    &:hover{
+        transition: 0.5s;
+        background: $main-color;
+        cursor: pointer;
+    }
+}
+
+// 연산
+.calc {
+    background: yellow;
+    width: 100px + 50px;
+    height: (100px / 2);
+    margin: 10px * 2;
+    padding: $padding-size - 5px;
+}
+
+// 믹스인
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin circle($size){
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    background: red;
+}
+
+
+.profile {
+    width: 300px;
+    height: 300px;
+    background: green;
+    @include flexCenter();    
+}
+
+.circle {
+    @include circle(100px);
+}
+
+// Extend
+%button-base{
+    padding: 10px 20px;
+    border-radius: 6px;
+    color:white;;
+}
+
+.bt-primary {
+    @extend %button-base;
+    background-color: blue;
+}
+
+.bt-danger {
+    @extend %button-base;
+    background-color: red;
+}
+
+
+@function half($size){
+    @return $size / 2;
+}
+
+.half-box{
+    width: half(200px);
+    height: half(200px);
+    background-color: orange;
+}
+
+// map
+$colors: (
+    primary:#00f,
+    danger:#f00,
+
+);
+
+@each $name, $color in $colors {
+    .text-#{$name}{
+        color: $color;
+    }
+}
+
+@for $i from 1 through 3{
+    .m-#{$i}{
+        margin: $i * 10px;
+    }
+}
+
+.icon-wrap{
+    display: flex;
+    gap: 20px;
+    
+}
+
+
+
+@for $j from 1 through 3{
+    .icon-#{$j}{
+        width: 50px;
+        height: 50px;
+        background:url(../image/icon#{$j}.svg) no-repeat center/cover; 
+    }
+}
+
+// 반복문
+$tags: html, css, js;
+@each $tag in $tags {
+    .tag-#{$tag}{
+        padding: 0 12px;
+        background: rgb(192, 46, 46);
+        border-radius: 6px;
+        margin-bottom: 2px;
+    }
+}
+
+//조건문
+@mixin theme($mode){
+    @if $mode == dark{
+        background: black;
+        color: #fff;
+
+    }@else if $mode == light{
+        background: white;
+        color:black
+    }@else{
+
+    }
+
+}
+
+.theme-box{
+    @include theme(dark);
+}
